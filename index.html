@@ -1,0 +1,158 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>numberNerds</title>
+    <link rel="stylesheet" href="src/css/style.css"/>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!--    jQuery CDN-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <!-- Firebase CDN -->
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+    <!--    firebase config-->
+    <!--    <script src="./keys.js"></script>-->
+    <!--    main app Js-->
+    <!--    <script src="./app.js"></script>-->
+    
+    <!--    To do: let server run the application-->
+    <!--    firebase is set up and 200 response-->
+    
+</head>
+
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg bg-secondary">
+        <div class="container-fluid">
+            <a class="navbar-brand mx-5" href="#">
+                <img
+                        src="/jsr/Sites/math-facts-app/greater-than-sign-icon-36378.png"
+                        width="50"
+                        height="50"
+                        class="d-inline-block align-top m-2 d-inline"
+                        alt=""
+                />
+                <span class="navbar-text text-white font-weight-bold" style="font-size: 36px;">numberNerds</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#questionModal"
+                                onclick="genQuestion()">Got to Solve'em All!
+                        </button>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-dark  hover-success dropdown-toggle" href="#" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Leaderboard
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a id="boardLeader"   class="dropdown-item" href="#">Elisa 1000 Mega points</a></li>
+                            <!-- TODO: populate with users name and score -->
+                        </ul>
+                    </li>
+<!--                    <li class="nav-item">-->
+<!--                        <a class="nav-link" href="#">Sign Up!</a>-->
+<!--                    </li>-->
+<!--                    <li class="nav-item">-->
+<!--                        <a class="nav-link disabled">Login</a>-->
+<!--                    </li>-->
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="numbers">
+    <!--    body container-->
+    <div class="container w-75">
+        <div class="card bg-light border-0 shadow my-5">
+            <div class="card-body text-left w-50 p-5">
+                <h2 class="fw-bold">#WantCoolNumberFacts&nbsp;<img
+                        src="/jsr/Sites/math-facts-app/bug.svg" alt="bug image"></h2>
+                <p class="lead mt-5" style="color: #57c93a">This app...<strong><i>test your skills</i></strong> and <strong><i>get awesome math facts</i></strong>!</br>
+                    Nerds will agree, these
+                    are truly trivia.
+                    </br>
+                    </br>
+                    <strong><u>Instructions:</u></strong>  Click on "Got to Solve'em All!" button in the nav. Solve a math expression. A correct answer gives you a super-charged Number trivia fact...Intrigued, I know!. Play as many times as you want! Click on close when you give up.</p>
+                <p class="lead mt-5">Leader Board worthy? the more you answer, the more you climb! (coming soon!)</p>
+                
+                <!-- Question Modal -->
+                <div class="modal fade" id="questionModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="modalQuestion" style="color: green;"></h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="questionForm">
+                                    <div class="col-auto">
+                                        <label for="questionInput"><strong>solve</strong></label>
+                                        <input type="text" readonly class="form-control-plaintext" id="questionInput">
+                                    </div>
+                                    <div class="col-auto">
+                                        <label for="answer"><strong>answer</strong></label>
+                                        <input type="text" class="form-control" id="answer" placeholder="Enter answer"
+                                               required>
+                                    </div>
+                                    <div class="col-auto">
+<!--                                        <input type="number" step="50" value="50">-->
+                                        <button id="submit" btn btn-success mb-3 onclick="verAnswer()">Answer
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="numFacts">
+                                    <h4 style="color: #6c757d">You've won a Number Trivia Fact!</h4>
+                                    <p class="fact"style="font-weight: bold; padding: 10px;"></p>
+                                    <button class="btn btn-outline-success" onclick="reset()">Play Again!</button>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--                closing statement-->
+                <div style="height: 95px; overflow: hidden"></div>
+                <p class="lead mb-0">Fact out!</p>
+            </div>
+        </div>
+    
+    </div>
+    <!--end body container-->
+</div>
+
+<div class="popup" onclick="myFunction()">Click me!
+    <span class="popuptext" id="myPopup"> Welcome Back Einstein...</span>
+</div>
+
+<!--footer-->
+<footer class="text-center text-lg-start fixed-bottom">
+    <!-- Grid container -->
+    <div class="container p-4">
+    </div>
+    <!-- Grid container -->
+    <!-- github info -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.3);">
+        2023 Dossett:
+        <a class="text-dark" href="https://github.com/elisadossett/math-facts-app">elisadossett@github</a>
+    </div>
+</footer>
+
+<script src="src/js/index.js"></script>
+
+</body>
+
+</html>
+
