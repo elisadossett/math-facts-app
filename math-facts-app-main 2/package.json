@@ -1,0 +1,19 @@
+{
+  "name": "math-facts-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.generalassemb.ly:elisadossett/math-facts-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "math-problem-generator-js": "^1.0.0",
+    "mathgenerator": "^1.4.0"
+  }
+}
