@@ -75,7 +75,7 @@ button {
 }
 
 body {
-    background-image: url('/src/images/img_3.png');
+    background-image: url('../src/images/img_3.png');
     background-color: transparent;
     -webkit-background-size: cover;
     -moz-background-size: cover;
