@@ -1,6 +1,6 @@
 # math-facts-app numberNerds Facts
 # This App...test your skills and get awesome math facts!
-# Nerds will agree, theseare truly trivia.
+# Nerds will agree, these are truly trivia.
 
 ### url:  https://elisadossett.github.io/math-facts-app/
 
